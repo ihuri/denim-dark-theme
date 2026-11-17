@@ -1,0 +1,78 @@
+{
+  "manifest_version": 3,
+  "name": "Denim Dark Theme — Star Wars Edition",
+  "version": "1.0.0",
+  "description": "Aplica o tema Denim Dark em qualquer site com inspetor visual de elementos, modal de personalização de cores, listas de sites e ícones Star Wars.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "icons/vader-16.png",
+    "32": "icons/vader-32.png",
+    "48": "icons/vader-48.png",
+    "128": "icons/vader-128.png"
+  },
+  "action": {
+    "default_title": "Denim Dark Theme",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/vader-16.png",
+      "32": "icons/vader-32.png",
+      "48": "icons/vader-48.png",
+      "128": "icons/vader-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": [
+        "styles/tokens.css",
+        "styles/universal-engine.css"
+      ],
+      "js": [
+        "shared/tokens.js",
+        "content/picker.js",
+        "content/modal.js",
+        "content/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*.png",
+        "icons/*.svg"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-picker": {
+      "suggested_key": {
+        "default": "Alt+Shift+D",
+        "mac": "Alt+Shift+D"
+      },
+      "description": "Selecionar elemento na página para personalizar cor"
+    },
+    "cycle-mode": {
+      "suggested_key": {
+        "default": "Alt+Shift+T",
+        "mac": "Alt+Shift+T"
+      },
+      "description": "Alternar entre Ativado, Personalizado e Desativado"
+    }
+  }
+}

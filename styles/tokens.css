@@ -1,0 +1,32 @@
+/* Denim Dark Design System Tokens */
+:root {
+  /* 1. Backgrounds & Surfaces */
+  --denim-bg-deepest: #070d19;
+  --denim-bg-main: #0a1324;
+  --denim-bg-surface: #0f1c34;
+  --denim-bg-card: rgba(14, 25, 46, 0.88);
+  --denim-bg-card-hover: rgba(18, 33, 62, 0.96);
+  --denim-bg-terminal: #050a14;
+  --denim-blur: 18px;
+
+  /* 2. Accents & Blue Spectrum */
+  --denim-primary: #3b82f6;
+  --denim-sky: #60a5fa;
+  --denim-ice: #bfdbfe;
+  --denim-code-highlight: #93c5fd;
+
+  /* 3. Borders & Dividers */
+  --denim-border-subtle: rgba(70, 115, 185, 0.18);
+  --denim-border-active: rgba(96, 165, 250, 0.40);
+  --denim-border-glow: rgba(59, 130, 246, 0.25);
+
+  /* 4. Text & Neutral Scales */
+  --denim-text-bright: #f8fafc;
+  --denim-text-dim: #94a3b8;
+  --denim-muted: #64748b;
+
+  /* 5. Status & Telemetry Indicators */
+  --kaspersky-green: #00c774;
+  --kaspersky-amber: #f59e0b;
+  --kaspersky-red: #f43f5e;
+}

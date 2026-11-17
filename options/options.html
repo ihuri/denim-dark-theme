@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Denim Dark — Configurações &amp; Listas</title>
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="top-bar">
+      <div class="brand">
+        <img src="../icons/vader.svg" alt="Darth Vader" class="brand-logo" />
+        <div>
+          <h1>Denim Dark Theme — Painel de Controle</h1>
+          <p class="subtitle">Gerenciamento de modos, listas de sites e customizações de cores</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-export" class="btn-secondary" type="button">Exportar JSON</button>
+        <label class="btn-secondary file-btn">
+          Importar JSON
+          <input type="file" id="file-import" accept=".json" hidden />
+        </label>
+        <button id="btn-reset" class="btn-danger" type="button">Resetar Tudo</button>
+      </div>
+    </header>
+
+    <!-- Status Legend + Global Config -->
+    <section class="grid-2">
+      <div class="card">
+        <h2>Modo de Operação Global</h2>
+        <p class="desc">Escolha o comportamento padrão da extensão e o modo de filtragem pelas listas.</p>
+
+        <div class="field">
+          <label class="field-label">Estado Padrão</label>
+          <div class="mode-cards">
+            <button type="button" class="mode-card" data-global="disabled">
+              <img src="../icons/stormtrooper.svg" alt="Stormtrooper" />
+              <strong>Desativado</strong>
+              <span>Capacete Branco</span>
+            </button>
+            <button type="button" class="mode-card" data-global="active">
+              <img src="../icons/vader.svg" alt="Darth Vader" />
+              <strong>Ativado</strong>
+              <span>Darth Vader Preto</span>
+            </button>
+            <button type="button" class="mode-card" data-global="custom">
+              <img src="../icons/commando.svg" alt="Comando" />
+              <strong>Personalizado</strong>
+              <span>Capacete Comando</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="opt-list-mode">Regra das Listas de Sites</label>
+          <select id="opt-list-mode" class="select">
+            <option value="blacklist">Aplicar em todos os sites, exceto na lista "Não se Aplicam"</option>
+            <option value="whitelist">Aplicar APENAS nos sites da lista "Se Aplicam"</option>
+          </select>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="opt-custom-base" />
+          <span>No modo Personalizado, manter o fundo escuro base além das cores selecionadas</span>
+        </label>
+      </div>
+
+      <div class="card">
+        <h2>Paleta Oficial Denim Dark</h2>
+        <p class="desc">Tokens disponíveis no seletor visual ao clicar em qualquer elemento da página.</p>
+        <div id="palette-preview" class="palette-preview"></div>
+      </div>
+    </section>
+
+    <!-- Whitelist & Blacklist -->
+    <section class="grid-2">
+      <div class="card">
+        <div class="card-head-row">
+          <div>
+            <h2>Sites que se Aplicam (Whitelist)</h2>
+            <p class="desc">Domínios onde o Denim Dark deve sempre ser aplicado.</p>
+          </div>
+          <span class="pill green" id="wl-count">0</span>
+        </div>
+        <div class="input-row">
+          <input type="text" id="wl-input" class="input" placeholder="ex: github.com, docs.laravel.com" />
+          <button type="button" id="wl-add" class="btn-primary">Adicionar</button>
+        </div>
+        <ul id="wl-list" class="list"></ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head-row">
+          <div>
+            <h2>Sites que Não se Aplicam (Blacklist)</h2>
+            <p class="desc">Domínios ignorados (o tema fica desativado e exibe o capacete branco).</p>
+          </div>
+          <span class="pill red" id="bl-count">0</span>
+        </div>
+        <div class="input-row">
+          <input type="text" id="bl-input" class="input" placeholder="ex: youtube.com, netflix.com" />
+          <button type="button" id="bl-add" class="btn-primary">Adicionar</button>
+        </div>
+        <ul id="bl-list" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- Custom Rules per Site -->
+    <section class="card">
+      <div class="card-head-row">
+        <div>
+          <h2>Customizações de Elementos por Site</h2>
+          <p class="desc">Cores personalizadas selecionadas com o inspetor visual em cada site.</p>
+        </div>
+        <span class="pill blue" id="rules-total">0 regras</span>
+      </div>
+      <div id="custom-rules-container" class="rules-container"></div>
+    </section>
+
+    <!-- Site Overrides -->
+    <section class="card">
+      <div class="card-head-row">
+        <div>
+          <h2>Modos Específicos por Site</h2>
+          <p class="desc">Sites onde você definiu manualmente Ativado, Desativado ou Personalizado.</p>
+        </div>
+      </div>
+      <ul id="site-modes-list" class="list horizontal-list"></ul>
+    </section>
+  </div>
+
+  <script src="../shared/tokens.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

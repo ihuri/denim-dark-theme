@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Denim Dark</title>
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img id="state-helmet-img" src="../icons/vader.svg" alt="Ícone de estado" class="helmet-icon" />
+        <div>
+          <h1 class="title">Denim Dark</h1>
+          <div class="status-line">
+            <span id="status-dot" class="status-dot"></span>
+            <span id="status-text" class="status-text">Carregando...</span>
+          </div>
+        </div>
+      </div>
+      <button id="btn-open-options" class="icon-btn" title="Abrir configurações avançadas e listas">
+        &#9881;
+      </button>
+    </header>
+
+    <!-- Current site card -->
+    <section class="card">
+      <div class="card-header">
+        <span class="label">Site atual</span>
+        <span id="current-host" class="host-badge">--</span>
+      </div>
+
+      <!-- Tri-state mode selector for global/site -->
+      <div class="mode-scope-row">
+        <span class="label">Modo para este site</span>
+        <button id="btn-clear-site-override" class="link-btn hidden" type="button">Usar padrão global</button>
+      </div>
+      <div class="segmented" role="group" aria-label="Modo de operação">
+        <button type="button" class="seg-btn" data-mode="disabled" id="mode-disabled">
+          <img src="../icons/stormtrooper.svg" alt="" />
+          <span>Desativado</span>
+        </button>
+        <button type="button" class="seg-btn" data-mode="active" id="mode-active">
+          <img src="../icons/vader.svg" alt="" />
+          <span>Ativado</span>
+        </button>
+        <button type="button" class="seg-btn" data-mode="custom" id="mode-custom">
+          <img src="../icons/commando.svg" alt="" />
+          <span>Personalizado</span>
+        </button>
+      </div>
+
+      <div class="global-row">
+        <span class="muted-label">Padrão global:</span>
+        <div class="mini-segmented">
+          <button type="button" class="mini-seg" data-global="disabled">Off</button>
+          <button type="button" class="mini-seg" data-global="active">On</button>
+          <button type="button" class="mini-seg" data-global="custom">Custom</button>
+        </div>
+      </div>
+
+      <label class="toggle-row" id="custom-base-row">
+        <input type="checkbox" id="chk-custom-base" />
+        <span>Manter fundo escuro base no modo Personalizado</span>
+      </label>
+    </section>
+
+    <!-- Element Picker Card -->
+    <section class="card">
+      <button id="btn-pick-element" class="btn-primary" type="button">
+        <span>&#10022; Selecionar Elemento na Página</span>
+        <span class="kbd">Alt+Shift+D</span>
+      </button>
+      <div class="picker-meta">
+        <span id="rules-count-text" class="muted-label">0 customizações neste site</span>
+        <button id="btn-manage-rules" class="link-btn" type="button">Ver regras</button>
+      </div>
+    </section>
+
+    <!-- Lists Management Card -->
+    <section class="card">
+      <div class="card-header">
+        <span class="label">Regra das Listas</span>
+        <select id="list-mode-select" class="select-compact">
+          <option value="blacklist">Aplicar em todos (exceto bloqueados)</option>
+          <option value="whitelist">Aplicar apenas nos permitidos</option>
+        </select>
+      </div>
+
+      <div class="tabs">
+        <button type="button" class="tab-btn active" data-tab="whitelist" id="tab-whitelist">
+          Se Aplicam (<span id="count-whitelist">0</span>)
+        </button>
+        <button type="button" class="tab-btn" data-tab="blacklist" id="tab-blacklist">
+          Não se Aplicam (<span id="count-blacklist">0</span>)
+        </button>
+      </div>
+
+      <div class="add-row">
+        <input type="text" id="domain-input" class="input" placeholder="ex: github.com" />
+        <button type="button" id="btn-add-domain" class="btn-secondary">+</button>
+        <button type="button" id="btn-add-current" class="btn-secondary" title="Adicionar site atual">Atual</button>
+      </div>
+
+      <ul id="domain-list" class="domain-list"></ul>
+    </section>
+  </div>
+
+  <script src="../shared/tokens.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

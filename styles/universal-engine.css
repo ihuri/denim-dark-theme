@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Denim Dark Universal Theme Engine
+   Applies when <html data-denim-theme="active"> or <html data-denim-theme="custom-base">
+   ========================================================================== */
+
+html[data-denim-theme="active"],
+html[data-denim-theme="custom-base"] {
+  color-scheme: dark !important;
+  background-color: var(--denim-bg-deepest, #070d19) !important;
+  color: var(--denim-text-bright, #f8fafc) !important;
+}
+
+html[data-denim-theme="active"] body,
+html[data-denim-theme="custom-base"] body {
+  background-color: var(--denim-bg-main, #0a1324) !important;
+  color: var(--denim-text-bright, #f8fafc) !important;
+}
+
+/* Scrollbars */
+html[data-denim-theme="active"] ::-webkit-scrollbar,
+html[data-denim-theme="custom-base"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html[data-denim-theme="active"] ::-webkit-scrollbar-track,
+html[data-denim-theme="custom-base"] ::-webkit-scrollbar-track {
+  background: var(--denim-bg-deepest, #070d19);
+}
+
+html[data-denim-theme="active"] ::-webkit-scrollbar-thumb,
+html[data-denim-theme="custom-base"] ::-webkit-scrollbar-thumb {
+  background: var(--denim-bg-surface, #0f1c34);
+  border: 1px solid var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+  border-radius: 6px;
+}
+
+html[data-denim-theme="active"] ::-webkit-scrollbar-thumb:hover,
+html[data-denim-theme="custom-base"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--denim-primary, #3b82f6);
+}
+
+/* Selection */
+html[data-denim-theme="active"] ::selection,
+html[data-denim-theme="custom-base"] ::selection {
+  background: rgba(59, 130, 246, 0.38) !important;
+  color: var(--denim-text-bright, #f8fafc) !important;
+}
+
+/* Semantic Containers & Surfaces */
+html[data-denim-theme="active"] :is(header, nav, aside, footer, main, section, article):not([data-denim-custom]),
+html[data-denim-theme="custom-base"] :is(header, nav, aside, footer, main, section, article):not([data-denim-custom]) {
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+}
+
+html[data-denim-theme="active"] :is(header, nav, aside, footer):not([data-denim-custom]):not([data-denim-skip-bg]) {
+  background-color: var(--denim-bg-surface, #0f1c34);
+}
+
+/* Frosted Cards, Panels, Dialogs, Popovers */
+html[data-denim-theme="active"] :is(
+  dialog,
+  [role="dialog"],
+  [role="menu"],
+  [role="listbox"],
+  [class*="card"]:not(img):not(svg),
+  [class*="panel"]:not(img):not(svg),
+  [class*="modal"]:not(#denim-dark-modal-host):not(img),
+  [class*="popover"],
+  [class*="dropdown"],
+  fieldset
+):not([data-denim-custom]):not([data-denim-skip-bg]) {
+  background-color: var(--denim-bg-card, rgba(14, 25, 46, 0.88));
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Typography */
+html[data-denim-theme="active"] :is(h1, h2, h3, h4, h5, h6, strong, b, th, legend):not([data-denim-custom]) {
+  color: var(--denim-text-bright, #f8fafc);
+}
+
+html[data-denim-theme="active"] :is(p, li, dd, dt, label, span):not([data-denim-custom]) {
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+}
+
+html[data-denim-theme="active"] :is(small, figcaption, time, [class*="subtitle"], [class*="meta"], [class*="timestamp"]):not([data-denim-custom]) {
+  color: var(--denim-muted, #64748b);
+}
+
+/* Links */
+html[data-denim-theme="active"] a:not([class*="btn"]):not([class*="button"]):not([role="button"]):not([data-denim-custom]) {
+  color: var(--denim-sky, #60a5fa);
+}
+
+html[data-denim-theme="active"] a:not([class*="btn"]):not([class*="button"]):not([role="button"]):not([data-denim-custom]):hover {
+  color: var(--denim-ice, #bfdbfe);
+}
+
+/* Code & SQL Terminal Blocks */
+html[data-denim-theme="active"] :is(pre, code, kbd, samp, [class*="terminal"], [class*="code-block"], .hljs, .CodeMirror, .monaco-editor):not([data-denim-custom]),
+html[data-denim-theme="custom-base"] :is(pre, code, kbd, samp):not([data-denim-custom]) {
+  background-color: var(--denim-bg-terminal, #050a14) !important;
+  color: var(--denim-code-highlight, #93c5fd) !important;
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18)) !important;
+}
+
+/* Tables */
+html[data-denim-theme="active"] table:not([data-denim-custom]) {
+  background-color: var(--denim-bg-surface, #0f1c34);
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+  color: var(--denim-text-bright, #f8fafc);
+}
+
+html[data-denim-theme="active"] :is(thead, th):not([data-denim-custom]) {
+  background-color: var(--denim-bg-deepest, #070d19);
+  color: var(--denim-text-bright, #f8fafc);
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+}
+
+html[data-denim-theme="active"] td:not([data-denim-custom]) {
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18));
+  color: var(--denim-text-dim, #94a3b8);
+}
+
+html[data-denim-theme="active"] tbody tr:not([data-denim-custom]):hover {
+  background-color: var(--denim-bg-card-hover, rgba(18, 33, 62, 0.96));
+}
+
+/* Form Controls */
+html[data-denim-theme="active"] :is(
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="submit"]):not([type="button"]):not([type="reset"]),
+  textarea,
+  select
+):not([data-denim-custom]) {
+  background-color: var(--denim-bg-deepest, #070d19) !important;
+  color: var(--denim-text-bright, #f8fafc) !important;
+  border: 1px solid var(--denim-border-subtle, rgba(70, 115, 185, 0.18)) !important;
+  caret-color: var(--denim-sky, #60a5fa) !important;
+}
+
+html[data-denim-theme="active"] :is(input, textarea, select):not([data-denim-custom]):focus {
+  outline: none !important;
+  border-color: var(--denim-primary, #3b82f6) !important;
+  box-shadow: 0 0 0 3px var(--denim-border-glow, rgba(59, 130, 246, 0.25)) !important;
+}
+
+html[data-denim-theme="active"] :is(input, textarea)::placeholder {
+  color: var(--denim-muted, #64748b) !important;
+}
+
+/* Primary Buttons & Controls */
+html[data-denim-theme="active"] :is(button[type="submit"], input[type="submit"], [class*="btn-primary"], [class*="primary-btn"]):not([data-denim-custom]) {
+  background-color: var(--denim-primary, #3b82f6) !important;
+  color: var(--denim-text-bright, #f8fafc) !important;
+  border-color: var(--denim-border-active, rgba(96, 165, 250, 0.40)) !important;
+}
+
+html[data-denim-theme="active"] hr {
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18)) !important;
+}
+
+/* Runtime Luminance Adaptive Attribute Overrides (set by content.js) */
+html[data-denim-theme="active"] [data-denim-bg="deepest"]:not([data-denim-custom]) {
+  background-color: var(--denim-bg-deepest, #070d19) !important;
+  background-image: none !important;
+}
+
+html[data-denim-theme="active"] [data-denim-bg="main"]:not([data-denim-custom]) {
+  background-color: var(--denim-bg-main, #0a1324) !important;
+  background-image: none !important;
+}
+
+html[data-denim-theme="active"] [data-denim-bg="surface"]:not([data-denim-custom]) {
+  background-color: var(--denim-bg-surface, #0f1c34) !important;
+  background-image: none !important;
+}
+
+html[data-denim-theme="active"] [data-denim-bg="card"]:not([data-denim-custom]) {
+  background-color: var(--denim-bg-card, rgba(14, 25, 46, 0.88)) !important;
+  background-image: none !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+html[data-denim-theme="active"] [data-denim-text="bright"]:not([data-denim-custom]) {
+  color: var(--denim-text-bright, #f8fafc) !important;
+}
+
+html[data-denim-theme="active"] [data-denim-text="dim"]:not([data-denim-custom]) {
+  color: var(--denim-text-dim, #94a3b8) !important;
+}
+
+html[data-denim-theme="active"] [data-denim-text="muted"]:not([data-denim-custom]) {
+  color: var(--denim-muted, #64748b) !important;
+}
+
+html[data-denim-theme="active"] [data-denim-border="subtle"]:not([data-denim-custom]) {
+  border-color: var(--denim-border-subtle, rgba(70, 115, 185, 0.18)) !important;
+}
+
+/* Preserve media elements */
+html[data-denim-theme="active"] :is(img, video, canvas, picture, [role="img"]) {
+  filter: none !important;
+}
